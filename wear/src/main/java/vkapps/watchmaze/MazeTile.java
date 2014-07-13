@@ -1,6 +1,7 @@
 package vkapps.watchmaze;
 
 /**
+ * A single tile of the maze
  * Created by Vivek on 2014-07-11.
  */
 public class MazeTile {
@@ -25,33 +26,21 @@ public class MazeTile {
 		new MazeTile(R.drawable.top_right_bottom),        //13
 		new MazeTile(R.drawable.right_bottom_left),       //14
 		new MazeTile(R.drawable.top_bottom_left),         //15
-		new MazeTile(R.drawable.maze_prize)          //16
+		new MazeTile(R.drawable.maze_prize),          //16
+		new MazeTile(R.drawable.no_path)               //17
 	};
 
 	public static MazeTile all(int i) {
 		return new MazeTile(list[i].resourceId);
 	}
 
+	public void setRowCol(int r, int c) {
+		row = r;
+		col = c;
+	}
+
 	private MazeTile(int rId) {
 		resourceId = rId;
 		top = right = bottom = left = null;
 	}
-
-	public MazeTile copy(int row, int column) {
-		MazeTile copy = new MazeTile(resourceId);
-		copy.row = row;
-		copy.col = column;
-		return copy;
-	}
-
-	public MazeTile set(MazeTile t, MazeTile r, MazeTile b, MazeTile l) {
-		top = t;
-		right = r;
-		bottom = b;
-		left = l;
-		return this;
-	}
-
-
-
 }
